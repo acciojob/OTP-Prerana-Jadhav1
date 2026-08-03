@@ -16,14 +16,11 @@ codes.forEach((code, idx) => {
 
     code.addEventListener('keydown', (e) => {
         if (e.key === 'Backspace') {
-            // If current field is empty, move to previous field
-            if (code.value === '') {
-                if (idx > 0) {
-                    codes[idx - 1].focus();
-                }
-            } else {
-                // Clear current field
-                code.value = '';
+            // Clear current field
+            code.value = '';
+            // Always move to previous field when backspace is pressed
+            if (idx > 0) {
+                codes[idx - 1].focus();
             }
         }
     });
